@@ -146,13 +146,16 @@ button {
 }
 
 /* Specific button */
-#play-btn {
+#play-btn,
+#reset-btn {
     background-color: navy;
     color: white;
     text-align: center;
 }
 
-#reset-btn {
+#fullReset-btn {
+    color: white;
     background-color: rgb(255, 0, 0);
+    margin-top: 10px;
     text-align: center;
 }

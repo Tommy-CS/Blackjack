@@ -37,10 +37,16 @@ let winningBet = 0;
 function play() {
     isAlive = true;
     placeBet();
-    cards();
-    BJMessagePrompts();
-    sumMessage();  
-    updateBetMax();
+    if (betAmount >= 0) {
+        cards();
+        BJMessagePrompts();
+        sumMessage();  
+        updateBetMax();
+    }
+    else {
+        messageEl.textContent = "Invalid bet amount. Please enter a valid amount within your coin balance."
+    }
+
 }
 
 //generates player and dealer cards
@@ -93,7 +99,7 @@ function stand() {
             playerCoins -= betAmount;
             coinsEl.textContent = "Your Coins: $" + playerCoins;
         }
-        else if (dealerSum > 21) {
+        else if (dealerSum > 21 && playerSum <= 21) {
             messageEl.textContent = "Dealer busted! You won!!! 🎉🎉🎉";
             playerCoins += winningBet;
             coinsEl.textContent = "Your Coins: $" + playerCoins;
@@ -173,6 +179,7 @@ function calculateRandomNum() {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+//This resets the code to allow the user to keep playing. However, it does not reset the amount of coins.
 function reset() {
     firstCard = calculateRandomNum();
     secondCard = calculateRandomNum();
@@ -189,6 +196,29 @@ function reset() {
     dealerSumEl.textContent = "Dealer Sum: ";
     dealerSum = dealerFirstCard + dealerSecondCard;
 
+    coinsEl.textContent = "Your Coins: $" + playerCoins;
+
+    updateBetMax();
+}
+
+//This FULLY resets the code. Resets the coins to the original amount of $200.
+function fullReset() {
+    firstCard = calculateRandomNum();
+    secondCard = calculateRandomNum();
+    messageEl.textContent = "Think you'll win? Hit play to test your luck!";
+    myCards = [];
+    playerCardsEl.textContent = "Your Cards: ";
+    playerSumEl.textContent = "Your Sum: ";
+    playerSum = firstCard + secondCard;
+
+    dealerFirstCard = calculateRandomNum();
+    dealerSecondCard = calculateRandomNum();
+    dealerCards = [];
+    dealerCardsEl.textContent = "Dealer Cards: ";
+    dealerSumEl.textContent = "Dealer Sum: ";
+    dealerSum = dealerFirstCard + dealerSecondCard;
+
+    playerCoins = 200;
     coinsEl.textContent = "Your Coins: $" + playerCoins;
 
     updateBetMax();

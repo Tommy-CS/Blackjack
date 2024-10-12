@@ -12,7 +12,8 @@
                 <p>2. Click " PLAY " to start the game.</p>
                 <p>3. Click " HIT " to draw a card or " STAND " to end your turn.</p>
                 <p>4. Aim to get as close to 21 as possible without going over.</p>
-                <p>5. Click " RESET " and keep playing!</p>
+                <p>5. Click " KEEP PLAYING " and keep playing!</p>
+                <p>6. If you run out of money, click " RESET " to start over again.</p>
             </div>
 
         <p id = "message-el">Think you'll win? Hit play to test your luck!</p>
@@ -42,7 +43,10 @@
         <button id="play-btn" onclick = "play()">PLAY</button>
         <button id = "hit-btn" onclick = "hit()">HIT</button>
         <button id = "stand-btn" onclick="stand()">STAND</button>
-        <button id = "reset-btn" onclick = "reset()">RESET</button>
+        <button id = "reset-btn" onclick = "reset()">KEEP PLAYING</button> <!-- Lets the user keep playing with same amount of coins saved -->
+        <div class="reset-container">
+            <button id = "fullReset-btn" onclick = "fullReset()">RESET</button> <!-- Fully resets the game, including coin amount -->
+        </div>
         <script src="blackjack.js"></script>
 
 
