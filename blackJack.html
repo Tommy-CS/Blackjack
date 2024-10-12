@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="blackJack.css">
+    </head>
+    <body>
+        <h1>BLACKJACK</h1>
+        <div id="main-content">
+            <!-- How to Play Section -->
+            <div id="howToPlay-el">
+                <h2>How to Play:</h2>
+                <p>1. Start by placing your bet.</p>
+                <p>2. Click " PLAY " to start the game.</p>
+                <p>3. Click " HIT " to draw a card or " STAND " to end your turn.</p>
+                <p>4. Aim to get as close to 21 as possible without going over.</p>
+                <p>5. Click " RESET " and keep playing!</p>
+            </div>
+
+        <p id = "message-el">Think you'll win? Hit play to test your luck!</p>
+        
+        <br>
+
+        <P id = "dealerCards-el">Dealer Cards:</P>
+        <p id = "dealerSum-el"> Dealer Sum:</p>
+        
+        <br>
+
+        <div id="betting-section">
+            <p id = "coins-el"> Your Coins: $200</p>  
+            <label for="bet-amount">Enter your bet:</label>
+            <input type="number" id="bet-amount" min="1" placeholder="Enter amount" style="width: 150px;"/>
+            <button id="submit-bet" onclick="placeBet()">CONFIRM BET</button>
+        </div>
+        
+        
+        <br>
+
+        <P id = "playerCards-el">Your Cards:</P>
+        <p id = "playerSum-el"> Your Sum:</p>
+        
+        <br>
+        
+        <button id="play-btn" onclick = "play()">PLAY</button>
+        <button id = "hit-btn" onclick = "hit()">HIT</button>
+        <button id = "stand-btn" onclick="stand()">STAND</button>
+        <button id = "reset-btn" onclick = "reset()">RESET</button>
+        <script src="blackjack.js"></script>
+
+
+    </body>
+</html>
